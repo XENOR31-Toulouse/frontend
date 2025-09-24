@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
     });
   }
 
-  onFilterChanged(filter: { min: number; max: number; cpuBrands: string[] }) {
+  onFilterChanged(filter: { min: number; max: number; cpuBrands: string[]; gpuBrands: string[] }) {
     this.filteredProducts = this.products.filter((p) => {
       const priceNumber = Number(p.price.replace(/[^0-9]/g, ''));
       const priceOk = priceNumber >= filter.min && priceNumber <= filter.max;
@@ -32,7 +32,11 @@ export class ListComponent implements OnInit {
         filter.cpuBrands.length === 0 || // no brand selected = allow all
         filter.cpuBrands.includes(p.cpu_brand);
 
-      return priceOk && cpuOk;
+      const gpuOk =
+        filter.gpuBrands.length === 0 ||
+        filter.gpuBrands.includes(p.gpu_brand);
+
+      return priceOk && cpuOk && gpuOk;
     });
   }
 }

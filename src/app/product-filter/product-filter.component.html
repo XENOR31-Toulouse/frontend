@@ -29,6 +29,43 @@
     />
   </div>
 
+  <!-- GPU BRAND FILTER -->
+
+    <div class="mb-4">
+        <h4 class="font-semibold text-gray-700 mb-2">GPU Brand</h4>
+        <label class="inline-flex items-center mr-4">
+        <input
+            type="checkbox"
+            [(ngModel)]="gpuBrands['NVIDIA']"
+            (change)="emitFilter()"
+            class="form-checkbox h-5 w-5 text-purple-600"
+        />
+        <span class="ml-2 text-gray-700">NVIDIA</span>
+        </label>
+        <label class="inline-flex items-center">
+        <input
+            type="checkbox"
+            [(ngModel)]="gpuBrands['AMD']"
+            (change)="emitFilter()"
+            class="form-checkbox h-5 w-5 text-purple-600"
+        />
+        <span class="ml-2 text-gray-700">AMD</span>
+        </label>
+        <span>
+        <label class="inline-flex items-center ml-4">
+            <input
+                type="checkbox"
+                [(ngModel)]="gpuBrands['Intel']"
+                (change)="emitFilter()"
+                class="form-checkbox h-5 w-5 text-purple-600"
+            />
+            <span class="ml-2 text-gray-700">Intel</span>
+        </label>
+        </span>
+    </div>
+
+
+
   <!-- CPU Brand Filter -->
   <div class="mb-4">
     <h4 class="font-semibold text-gray-700 mb-2">CPU Brand</h4>

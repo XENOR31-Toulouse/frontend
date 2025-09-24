@@ -13,6 +13,7 @@ export class ProductFilterComponent {
     min: number;
     max: number;
     cpuBrands: string[];
+    gpuBrands: string[];
   }>();
 
   minPrice: number = 0;
@@ -23,15 +24,25 @@ export class ProductFilterComponent {
     Intel: false,
   };
 
+  gpuBrands: { [key: string]: boolean } = {
+    NVIDIA: false,
+    AMD: false,
+    Intel: false,
+  };
+
   // Emit filter whenever a value changes
   emitFilter() {
-    const selectedBrands = Object.keys(this.cpuBrands).filter(
+    const selectedCpuBrands = Object.keys(this.cpuBrands).filter(
       (brand) => this.cpuBrands[brand]
+    );
+    const selectedGpuBrands = Object.keys(this.gpuBrands).filter(
+      (brand) => this.gpuBrands[brand]
     );
     this.filterChanged.emit({
       min: this.minPrice,
       max: this.maxPrice,
-      cpuBrands: selectedBrands,
+      cpuBrands: selectedCpuBrands,
+      gpuBrands: selectedGpuBrands,
     });
   }
 }
