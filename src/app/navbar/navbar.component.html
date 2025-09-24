@@ -1,0 +1,20 @@
+<!-- src/app/navbar/navbar.component.html -->
+<nav class="sticky top-0 z-50 p-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white shadow-lg flex space-x-6">
+    <!-- home -->
+    <a 
+    routerLink="/"  
+  
+    class="relative group px-3 py-2 rounded-lg font-semibold transition"
+    >
+    Home
+    <span class="absolute left-0 -bottom-1 w-0 h-1 bg-white rounded transition-all group-hover:w-full"></span>
+  </a>
+    <!-- product list -->
+    <a
+    routerLink="/list" 
+    class="relative group px-3 py-2 rounded-lg font-semibold transition"
+  >
+    Product List
+    <span class="absolute left-0 -bottom-1 w-0 h-1 bg-white rounded transition-all group-hover:w-full"></span>
+  </a>
+</nav>

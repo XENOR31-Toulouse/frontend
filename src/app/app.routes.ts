@@ -1,10 +1,13 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
-// import { ProductFormComponent } from './product-form/product-form.component';
-// import { ProductListComponent } from './product-list/product-list.component';
+import { HomeComponent } from './Home/home.component';
+import { ListComponent } from './list/list.component';
+import { FormContactComponent } from './form-contact/form-contact.component';
+
 
 export const routes: Routes = [
-//   { path: 'form', component: ProductFormComponent },
-//   { path: 'list', component: ProductListComponent },
-  { path: '', redirectTo: 'list', pathMatch: 'full' }
+   { path: 'Home', component: HomeComponent },
+   { path: 'list', component: ListComponent },
+   { path: 'form', component: FormContactComponent },
+  { path: '', redirectTo: 'Home', pathMatch: 'full' }
 ];
