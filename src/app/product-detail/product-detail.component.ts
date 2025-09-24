@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ProductService, Product } from '../services/product.service';
-
+import { ProductService } from '../services/product.service';
+import { Product } from '../model/Product'
 @Component({
   selector: 'app-product-detail',
   standalone: true,
