@@ -8,6 +8,12 @@ export interface Product {
   description: string;
   image: string;
   price: string;
+  cpu: string;
+  cpu_brand: string;
+  gpu: string;
+  ram: string;
+  storage: string;
+
 }
 
 @Injectable({
@@ -18,24 +24,39 @@ export class ProductService {
     {
       id: 1,
       name: 'Gaming Beast 5000',
-      description: 'Intel i7, RTX 4080, 32GB RAM',
-      image: 'assets/pc1.jpg',
-      price: '€2,499'
+        description: 'High-end gaming PC with the latest GPU and CPU.',
+        image: 'assets/images/pc1.jpg',
+        price: '€1999',
+        cpu: 'Intel i9-13900K',
+        cpu_brand: 'Intel',
+        gpu: 'NVIDIA RTX 4090',
+        ram: '32GB DDR5',
+        storage: '1TB NVMe SSD'
     },
     {
-      id: 2,
-      name: 'Pro Workstation',
-      description: 'AMD Ryzen 9, RTX 4070, 64GB RAM',
-      image: 'assets/pc2.jpg',
-      price: '€3,199'
+        id: 2,
+        name: 'Workstation Pro X',
+        description: 'Powerful workstation for professionals and creators.',
+        image: 'assets/images/pc2.jpg',
+        price: '€2499',
+        cpu: 'AMD Ryzen 9 7950X',
+        cpu_brand: 'AMD',
+        gpu: 'NVIDIA RTX 4080',
+        ram: '64GB DDR5',   
+        storage: '2TB NVMe SSD + 4TB HDD'
     },
     {
-      id: 3,
-      name: 'Budget Gamer',
-      description: 'Intel i5, GTX 1660, 16GB RAM',
-      image: 'assets/pc3.jpg',
-      price: '€999'
-    }
+        id: 3,
+        name: 'Budget Gamer 300',
+        description: 'Affordable gaming PC for casual gamers.',
+        image: 'assets/images/pc3.jpg',
+        price: '€899',
+        cpu: 'Intel i5-12400F',
+        cpu_brand: 'Intel',
+        gpu: 'NVIDIA RTX 3060',
+        ram: '16GB DDR4',
+        storage: '512GB NVMe SSD'
+    },
   ];
 
   constructor() {}

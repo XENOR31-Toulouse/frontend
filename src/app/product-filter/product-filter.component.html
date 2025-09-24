@@ -1,0 +1,36 @@
+<div class="bg-white rounded-xl shadow p-6 mb-6 max-w-md mx-auto">
+  <h3 class="font-bold text-gray-700 mb-4 text-center">Filter by Price (€)</h3>
+
+  <!-- Min Price Slider -->
+  <div class="mb-4 flex flex-col items-center">
+    <label class="block text-gray-600 mb-1">Min: {{ minPrice }}€</label>
+    <input
+      type="range"
+      min="0"
+      max="5000"
+      step="50"
+      [(ngModel)]="minPrice"
+      class="w-64 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+    />
+  </div>
+
+  <!-- Max Price Slider -->
+  <div class="mb-4 flex flex-col items-center">
+    <label class="block text-gray-600 mb-1">Max: {{ maxPrice }}€</label>
+    <input
+      type="range"
+      min="0"
+      max="5000"
+      step="50"
+      [(ngModel)]="maxPrice"
+      class="w-64 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
+    />
+  </div>
+
+  <button
+    (click)="applyFilter()"
+    class="block mx-auto bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition"
+  >
+    Apply Filter
+  </button>
+</div>

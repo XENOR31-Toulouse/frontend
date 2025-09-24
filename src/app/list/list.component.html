@@ -4,16 +4,22 @@
     Our Products
   </h1>
 
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div *ngFor="let product of products" class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
-      <img [src]="product.image" [alt]="product.name" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h2 class="text-xl font-bold mb-2">{{ product.name }}</h2>
-        <p class="text-gray-600 mb-4">{{ product.description }}</p>
-        <p class="text-purple-600 font-semibold mb-4">{{ product.price }}</p>
-       <a [routerLink]="['/product', product.id]" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
-        View Details</a>
-      </div>
+ <!-- Product Filter -->
+<app-product-filter (priceFilter)="onPriceFilter($event)"></app-product-filter>
+
+<!-- Products Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div *ngFor="let product of filteredProducts" class="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+    <img [src]="product.image" [alt]="product.name" class="w-full h-48 object-cover">
+    <div class="p-6">
+      <h2 class="text-xl font-bold mb-2">{{ product.name }}</h2>
+      <p class="text-gray-600 mb-4">{{ product.description }}</p>
+      <p class="text-purple-600 font-semibold mb-4">{{ product.price }}</p>
+      <a [routerLink]="['/product', product.id]" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition">
+        View Details
+      </a>
     </div>
   </div>
+</div>
+
 </section>
