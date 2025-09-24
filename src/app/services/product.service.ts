@@ -1,6 +1,7 @@
 // src/app/services/product.service.ts
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Product {
   id: number;
@@ -8,40 +9,25 @@ export interface Product {
   description: string;
   image: string;
   price: string;
+  cpu: string;
+  cpu_brand: string;
+  gpu: string;
+  gpu_brand: string;
+  ram: string;
+  ram_size: string;
+  storage: string;
+  storage_size: string;
 }
 
 @Injectable({
-  providedIn: 'root' // makes it available app-wide
+  providedIn: 'root'
 })
 export class ProductService {
-  private products: Product[] = [
-    {
-      id: 1,
-      name: 'Gaming Beast 5000',
-      description: 'Intel i7, RTX 4080, 32GB RAM',
-      image: 'assets/pc1.jpg',
-      price: '€2,499'
-    },
-    {
-      id: 2,
-      name: 'Pro Workstation',
-      description: 'AMD Ryzen 9, RTX 4070, 64GB RAM',
-      image: 'assets/pc2.jpg',
-      price: '€3,199'
-    },
-    {
-      id: 3,
-      name: 'Budget Gamer',
-      description: 'Intel i5, GTX 1660, 16GB RAM',
-      image: 'assets/pc3.jpg',
-      price: '€999'
-    }
-  ];
+  private http = inject(HttpClient); // Angular 19+ inject() style
+  private baseUrl = 'http://localhost:8080'; // your Spring Boot backend URL
 
-  constructor() {}
-
-  // Return products as Observable (future-proof for API integration)
   getProducts(): Observable<Product[]> {
-    return of(this.products);
+    return this.http.get<Product[]>(`${this.baseUrl}/pcs`);
+
   }
 }
