@@ -23,12 +23,16 @@ export class ListComponent implements OnInit {
     });
   }
 
-  onPriceFilter(filter: { min: number; max: number }) {
-    this.filteredProducts = this.products.filter(
-      (p) => {
-        const priceNumber = Number(p.price.replace(/[^0-9]/g, '')); // remove € and parse
-        return priceNumber >= filter.min && priceNumber <= filter.max;
-      }
-    );
+  onFilterChanged(filter: { min: number; max: number; cpuBrands: string[] }) {
+    this.filteredProducts = this.products.filter((p) => {
+      const priceNumber = Number(p.price.replace(/[^0-9]/g, ''));
+      const priceOk = priceNumber >= filter.min && priceNumber <= filter.max;
+
+      const cpuOk =
+        filter.cpuBrands.length === 0 || // no brand selected = allow all
+        filter.cpuBrands.includes(p.cpu_brand);
+
+      return priceOk && cpuOk;
+    });
   }
 }

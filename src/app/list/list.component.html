@@ -4,8 +4,10 @@
     Our Products
   </h1>
 
- <!-- Product Filter -->
-<app-product-filter (priceFilter)="onPriceFilter($event)"></app-product-filter>
+
+<!-- Product Filter -->
+<app-product-filter (filterChanged)="onFilterChanged($event)"></app-product-filter>
+
 
 <!-- Products Grid -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
