@@ -24,7 +24,7 @@ export interface Product {
 })
 export class ProductService {
   private http = inject(HttpClient); // Angular 19+ inject() style
-  private baseUrl = 'http://localhost:8080'; // your Spring Boot backend URL
+  private baseUrl = 'http://localhost:8082'; // your Spring Boot backend URL
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/pcs`);

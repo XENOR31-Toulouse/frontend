@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../services/product.service';
-import { Product } from '../model/Product'
+import { Product } from '../model/product'
 @Component({
   selector: 'app-product-detail',
   standalone: true,

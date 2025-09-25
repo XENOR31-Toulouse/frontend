@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProductService} from '../services/product.service';
 import { ProductFilterComponent } from '../product-filter/product-filter.component';
-import { Product } from '../model/Product';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'list-pc',
